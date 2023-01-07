@@ -1,0 +1,134 @@
+//设置主题
+:root {
+  --bg-color: #DEE1E6;
+  --head-color: #FF4A41;
+  --body-color: #00D600;
+  --food-color: #51ABFE;
+  --border-color: #B4B4FF;
+
+  --bg-color-theme1: #35FFFF;
+  --head-color-theme1: #FC5633;
+  --body-color-theme1: #F0AD4E;
+  --food-color-theme1: #D71C1B;
+  --border-color-theme1: #00A1DD;
+
+  --bg-color-theme2: #F6D04D;
+  --head-color-theme2: #263859;
+  --body-color-theme2: #FF6768;
+  --food-color-theme2: #78FEE0;
+  --border-color-theme2: #41B6E6;
+}
+
+body {
+  // 设置主窗口的样式
+  #gl-snake {
+    * { // 配置默认样式
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; // 改变盒子模型的计算方式
+    }
+
+    position: relative;
+    box-sizing: border-box;
+    font: bold 20px 'Courier';
+    user-select: none;
+    width: 360px;
+    height: 390px;
+    background-color: var(--bg-color);
+    margin: 0 auto;
+    border: 8px solid var(--border-color);
+    border-radius: 25px;
+    display: flex; // 开启弹性盒模型 flex
+    flex-flow: column; // 设置主轴方向(默认横向)
+    align-items: center; // 侧轴的对齐方式
+    justify-content: center; // 平均分配空间
+    // 主题1
+    &.theme1 {
+      --bg-color: var(--bg-color-theme1);
+      --head-color: var(--head-color-theme1);
+      --body-color: var(--body-color-theme1);
+      --food-color: var(--food-color-theme1);
+      --border-color: var(--border-color-theme1);
+    }
+
+    // 主题2
+    &.theme2 {
+      --bg-color: var(--bg-color-theme2);
+      --head-color: var(--head-color-theme2);
+      --body-color: var(--body-color-theme2);
+      --border-color: var(--border-color-theme2);
+      --food-color: var(--food-color-theme2);
+    }
+
+    // 设置舞台类样式
+    .stage {
+      width: 304px;
+      height: 304px;
+      border: 2px solid black;
+      position: relative; // 开启相对定位
+      // 蛇对象样式
+      .snake {
+        width: 0;
+        height: 0;
+
+        & > div {
+          width: 10px;
+          height: 10px;
+          border: 1px solid var(--bg-color);
+          background-color: var(--body-color);
+          position: absolute; // 开启绝对定位
+        }
+
+        & > div:nth-child(1) {
+          background-color: var(--head-color);
+          border-radius: 3px;
+          z-index: 2;
+        }
+      }
+
+      // 食物对象样式
+      .food {
+        width: 10px;
+        height: 10px;
+        position: absolute; // 开启绝对定位
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-content: space-between;
+
+        & > div {
+          transform: rotate(45deg);
+          width: 4px;
+          height: 4px;
+          background-color: var(--food-color);
+        }
+      }
+    }
+
+    // 设置计分板样式
+    .score-panel {
+      width: 300px;
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+    }
+
+    // 设置信息样式
+    .message {
+      position: absolute;
+      width: fit-content;
+      left: 50%;
+      top: 45%;
+      color: var(--head-color);
+      transform: translate(-50%, -50%);
+      display: none;
+      background-color: rgb(69, 250, 19, 0.8);
+      box-sizing: unset;
+      border-radius: 3px;
+
+      &.show {
+        display: block;
+      }
+    }
+  }
+}

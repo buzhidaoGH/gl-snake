@@ -1,0 +1,14 @@
+<!doctype html><html lang="zh_CN"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><title>贪吃蛇</title><script src="snake.js"></script></head><body><div id="myCtx"></div><button onclick="start()">开始</button> <button onclick="pause()">暂停</button> <button onclick="reset()">重新开始</button> <button onclick="theme(0)">默认主题</button> <button onclick="theme(1)">主题2</button> <button onclick="theme(2)">主题3</button><script>let snakeGame = new window.SnakeGame('#mytx')
+    function start() {
+      snakeGame.start()
+    }
+    function pause() {
+      snakeGame.pause()
+    }
+    function reset() {
+      snakeGame.reset()
+      snakeGame.start()
+    }
+    function theme(value) {
+      snakeGame.changeTheme(value)
+    }</script></body></html>

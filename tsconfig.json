@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "es2015", /*编译后的js语法*/
+    "module": "es2015", /*创建的模块ts使用的是哪个语法*/
+    "strict": true, /*启动严格检测*/
+    "outDir": "./dist", /*编译后的目标*/
+    "noEmitOnError": true /*有错误时,不编译*/
+  },
+  "include": ["./src"], /*检测的ts目标*/
+}
